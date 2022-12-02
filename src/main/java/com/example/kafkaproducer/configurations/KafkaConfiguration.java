@@ -4,7 +4,6 @@ import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.IntegerSerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.TopicBuilder;
@@ -19,14 +18,14 @@ import java.util.Map;
 public class KafkaConfiguration {
 
     //Nombre del tópico
-    public final static String TOPIC = "kafka-topic";
+    public final static String KAFKA_TOPIC = "kafka-topic";
 
     //Host de Kafka
     private final static String KAFKA_HOST = "localhost:9092";
 
     @Bean
     public NewTopic topic() {
-        return TopicBuilder.name(TOPIC)
+        return TopicBuilder.name(KAFKA_TOPIC)
                 .partitions(10)
                 .replicas(1)
                 .build();
@@ -49,7 +48,7 @@ public class KafkaConfiguration {
 
     @Bean
     public KafkaTemplate<Integer, String> kafkaTemplate() {
-        return new KafkaTemplate<Integer, String>(producerFactory());
+        return new KafkaTemplate<>(producerFactory());
     }
 
 }

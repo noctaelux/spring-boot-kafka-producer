@@ -1,22 +1,33 @@
 package com.example.kafkaproducer.service;
 
 import com.example.kafkaproducer.senders.Sender;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.management.AttributeNotFoundException;
 
 @Service
+@RequiredArgsConstructor
 public class MessagingServiceImpl implements MessagingService{
 
-    @Autowired
-    Sender sender;
+    private final Logger LOG = LoggerFactory.getLogger(MessagingServiceImpl.class);
+
+    private final Sender sender;
+
+    private final MessageMarshalling messageMarshalling;
 
     @Override
-    public void sendMessage(String mensaje) throws AttributeNotFoundException {
-        if (mensaje.isEmpty()){
+    public void sendMessage(Object mensaje) throws AttributeNotFoundException {
+        if (mensaje == null){
             throw new AttributeNotFoundException("Attribute message cannot be null or empty string.");
         }
-        sender.send(mensaje);
+        try {
+            sender.send(messageMarshalling.toJson(mensaje));
+        } catch (JsonProcessingException e) {
+            LOG.error(e.getMessage());
+        }
     }
 }
