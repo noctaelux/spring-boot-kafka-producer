@@ -21,11 +21,15 @@ public class MessagingServiceImpl implements MessagingService{
 
     @Override
     public void sendMessage(Object mensaje) throws AttributeNotFoundException {
-        if (mensaje == null){
-            throw new AttributeNotFoundException("Attribute message cannot be null or empty string.");
-        }
+
+        String marshalledMessage;
         try {
-            sender.send(messageMarshalling.toJson(mensaje));
+            marshalledMessage = messageMarshalling.toJson(mensaje);
+            if (marshalledMessage.isEmpty()){
+                throw new AttributeNotFoundException("Attribute message cannot be null or empty string.");
+            }
+            LOG.info("Sending to queue ---> : "+marshalledMessage);
+            sender.send(marshalledMessage);
         } catch (JsonProcessingException e) {
             LOG.error(e.getMessage());
         }

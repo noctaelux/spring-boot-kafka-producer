@@ -13,4 +13,6 @@ public class Usuario {
     private String apellidos;
     private Date fechaNacimiento;
 
+    private Direccion direccion;
+
 }
