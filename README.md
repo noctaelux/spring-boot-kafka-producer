@@ -45,3 +45,9 @@ $ docker exec -it kafka bash
 
 El comando anterior mostrará los mensajes encolados en Kafka desde el primero hasta el más actual. Remover el parámetro
 `--from-beginning` mostrará sólo los nuevos mensajes que se vayan generando.
+
+### Fuentes
+
+https://docs.spring.io/spring-kafka/reference/html/#sending-messages
+https://www.conduktor.io/kafka/kafka-cli-tutorial
+https://www.baeldung.com/spring-kafka
