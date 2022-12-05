@@ -4,6 +4,6 @@ import javax.management.AttributeNotFoundException;
 
 public interface MessagingService {
 
-    void sendMessage(Object mensaje) throws AttributeNotFoundException;
+    void sendJsonMessage(Object mensaje) throws AttributeNotFoundException;
 
 }

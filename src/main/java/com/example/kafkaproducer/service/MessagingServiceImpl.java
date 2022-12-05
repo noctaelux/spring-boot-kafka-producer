@@ -20,7 +20,7 @@ public class MessagingServiceImpl implements MessagingService{
     private final MessageMarshalling messageMarshalling;
 
     @Override
-    public void sendMessage(Object mensaje) throws AttributeNotFoundException {
+    public void sendJsonMessage(Object mensaje) throws AttributeNotFoundException {
 
         String marshalledMessage;
         try {

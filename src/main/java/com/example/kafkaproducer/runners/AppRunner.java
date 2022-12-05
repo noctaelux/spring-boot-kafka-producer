@@ -29,6 +29,6 @@ public class AppRunner implements CommandLineRunner {
                         .build())
                 .build();
 
-        messagingService.sendMessage(usuario);
+        messagingService.sendJsonMessage(usuario);
     }
 }
