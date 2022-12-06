@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.Date;
 
 @Component
@@ -27,6 +28,7 @@ public class AppRunner implements CommandLineRunner {
                         .calle("Juán de Dios")
                         .numero(22)
                         .build())
+                .observaciones(Arrays.asList("Ref1","Ref2","Referencia3"))
                 .build();
 
         messagingService.sendJsonMessage(usuario);

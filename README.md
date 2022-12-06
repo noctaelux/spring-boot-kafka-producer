@@ -34,6 +34,11 @@ El `AppRunner` realiza un llamado al servicio `MessagingService` el cual contien
 envolver el mensaje en formato JSON (por medio de la interfaz `MessageMarshalling`) y encolarlo al tópico de Kafka por 
 medio de la interfaz `Sender`. Como `KafkaSender` es la única implementación disponible, entonces `Sender` la ocupará.
 
+Para la clase modelo `Usuario` se consideran los tipos String, Date, Integer, List y Objeto, esto con la finalidad de 
+abarcar una mayor gama de tipos de datos. Adicionalmente, se ocupa la librería de Lombok para facilitar la lectura de
+las clases y evitar boilerplate de código (constructores, getters, setters, patrón builder). Para mayor información sobre
+el funcionamiento de esta librería: https://www.baeldung.com/intro-to-project-lombok 
+
 Si se generó un contenedor de Docker Kafka/Zookeeper, para visualizar los mensajes que se ejecutan en Kafka:
 
 ```
@@ -50,3 +55,4 @@ El comando anterior mostrará los mensajes encolados en Kafka desde el primero h
 - https://docs.spring.io/spring-kafka/reference/html/#sending-messages
 - https://www.conduktor.io/kafka/kafka-cli-tutorial
 - https://www.baeldung.com/spring-kafka
+- https://www.baeldung.com/intro-to-project-lombok
