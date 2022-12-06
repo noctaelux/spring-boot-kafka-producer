@@ -1,4 +1,4 @@
-# Spring Boot - Kafka Messaging Producer
+# Spring Boot - Kafka Messaging Consumer
 
 ## Requerimientos
 - Java v11+
@@ -11,12 +11,12 @@
 Se debe instalar o tener algún servidor de Kafka en ejecución, en la clase `KafkaConfiguration` se pueden realizar 
 modificaciones para ajustar los parámetros de la conexión, según las necesidades.
 
-Se anexa un archivo docker-compose.yml con un servidor de kafka/zookeeper para levantar dos contenedores, para ejecutar 
+Se anexa un archivo `docker-compose.yml` con un servidor de kafka/zookeeper para levantar dos contenedores. Para ejecutar 
 las líneas de este compose, debemos ir a la carpeta donde se encuentra el archivo yml:
 ```
 $ docker compose up -d
 ```
-y esperamos a que los comoponentes levanten completamente.
+y esperamos a que los componentes levanten completamente.
 
 Para levantar este proyecto de Spring Boot, vamos a la carpeta del proyecto y por medio de Maven:
 ```
